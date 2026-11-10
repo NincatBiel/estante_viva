@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gabriel Ramos">
+    <title>Estante Viva | Cadastro e Catálogo</title>
+    
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body>
+    <header>
+            <h1>Estante Viva</h1>
+            <nav>
+                <a href="#cadastro">Cadastro</a>
+                |
+                <a href="#catalogo">Catálogo</a>
+            </nav>
+    </header>
+    <main>
+        <h1>Gerenciamento de livros</h1>
+        <form id="cadastro">
+            <h2>Cadastrar livro</h2>
+                
+            <label for="">
+                Título
+                <input type="text" placeholder="Informe o título" required id="titulo">
+            </label>
+            
+            <label for="">
+                Autor
+                <input type="text" placeholder="Informe o autor" required id="autor">
+            </label>
+
+            <label for="">
+                Preço (R$)
+                <input type="number" placeholder="0,00" required id="preco">
+            </label>
+
+            <label for="">
+                Quantidade em estoque
+                <input type="number" placeholder="0" required id="quantidade">
+            </label>
+
+            <button type="submit">Cadastrar livro</button>
+        <div></div>
+        </form>
+        
+        
+        <form id="catalogo">
+            <h2>Catálogo de livros</h2>
+
+            <input type="text" placeholder="Buscar por parte do título" required id="tituloBusca">
+            
+            <button type="submit">Buscar</button>
+            <button type="reset">Limpar</button>
+        </form>
+
+        <table id="tabelaCatalogo">
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+                <th>Ações</th>
+            </tr>
+
+            <!--adicionar dinamicamente daqui-->
+            <tr>
+                <td>galinha</td>
+                <td>galo</td>
+                <td>pintinho</td>
+                <td>ovo</td>
+                <td><button id="n-sei-oq-vai-aqui">Editar</button><button onclick="excluirItem()">Excluir</button></td>
+            </tr>
+            <!--até aqui-->
+        </table>        
+        
+    </main>
+    <footer>Estante Viva - Gerenciamento de catálogo</footer>
+<script src="/frontend/script.js"></script>
+</body>
+</html>
