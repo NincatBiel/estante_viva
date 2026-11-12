@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root{
-    --background-color: rgb(255, 255, 255);
+    --light-background: rgb(255, 255, 255);
+    --dark-background: #333333;
+    --card-panels: #EEEEEE;
+    --button-title-navbar: #245C46;
+}
+
+body{
+    font-family: 'Open Sans',sans-serif;
 }
 
 header{
