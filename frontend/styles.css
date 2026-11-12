@@ -5,6 +5,7 @@
     --dark-background: #333333;
     --card-panels: #EEEEEE;
     --button-title-navbar: #245C46;
+    --light-font: #FFFF;
 }
 
 body{
@@ -17,8 +18,24 @@ header{
     justify-content: space-between;
 }
 
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 label{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+header,footer,nav,button{
+    background-color: var(--button-title-navbar);
+    color: var(--light-font);
+}
+
+a{
+    text-decoration: none;
+    color: var(--light-font);
 }
