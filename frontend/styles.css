@@ -64,9 +64,13 @@ main{
     padding: 0 25px;
 }
 
-table{
+table,th,tr,td{
     border: 1px; 
     border-collapse: collapse;
     border-width: 3px;
     border-style: solid;
+}
+
+th,td{
+    padding: 2px 3px;
 }
