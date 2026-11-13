@@ -7,6 +7,11 @@ const formCadastro = document.getElementById('cadastro');
 const formCatalogo = document.getElementById('catalogo');
 const tabela = document.getElementById('tabelaCatalogo');
 
+
+
+const tituloBusca = document.getElementById('tituloBusca').value;
+
+
 formCadastro.addEventListener('submit', async(e) => {
     e.preventDefault();
 

@@ -10,18 +10,22 @@
 
 body{
     font-family: 'Open Sans',sans-serif;
+    margin: 0px;
 }
 
 header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 8px 20px;
+    padding-right: 30px;
 }
 
 footer{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px 12px;
 }
 
 label{
@@ -38,4 +42,31 @@ header,footer,nav,button{
 a{
     text-decoration: none;
     color: var(--light-font);
+}
+
+button{
+    border-style: none;
+    border-radius: 5px;
+    padding: 3px 5px;
+    
+}
+
+button:hover{
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+button[type = reset]:hover{
+    background-color: red;
+}
+
+main{
+    padding: 0 25px;
+}
+
+table{
+    border: 1px; 
+    border-collapse: collapse;
+    border-width: 3px;
+    border-style: solid;
 }
