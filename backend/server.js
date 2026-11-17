@@ -30,7 +30,7 @@ app.get('/livro/:id', (req, res) => {
 
 //POST
 app.post('/livro', (req,res) => {
-    const {title, description} = req.body
+    const {titulo,autor,preco,estoque} = req.body
     db.query('INSERT INTO livro (titulo, autor, preco, estoque) VALUES (?, ?)', [titulo, autor, preco, estoque], (err, results) => {
         if(err) return res.status(500).json({error: err.message});
         res.status(201).json({id: results.insertId, titulo, autor, preco, estoque});
@@ -39,7 +39,7 @@ app.post('/livro', (req,res) => {
 
 //PUT
 app.put('/livro/:id', (req, res) => {
-    const {title, description, completed} = req.body;
+    const {titulo,autor,preco,estoque} = req.body;
     db.query('UPDATE livro SET titulo = ?, autor = ?, preco = ?, estoque = ? WHERE id = ?', [titulo, autor, preco, estoque, req.params.id], (err,results) =>{
         if(err) return res.status(500).json({error: err.message});
         if(results.affectedRows === 0) return res.status(404).json ({error: 'Livro não encontrado'});

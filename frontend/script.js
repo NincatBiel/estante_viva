@@ -3,14 +3,10 @@
 
 const apiUrl = 'http://localhost:3000/livro';
 
+// ================================== FUNCTIONALITIES ==========================================
+
+//ADD
 const formCadastro = document.getElementById('cadastro');
-const formCatalogo = document.getElementById('catalogo');
-const tabela = document.getElementById('tabelaCatalogo');
-
-
-
-const tituloBusca = document.getElementById('tituloBusca').value;
-
 
 formCadastro.addEventListener('submit', async(e) => {
     e.preventDefault();
@@ -41,6 +37,9 @@ formCadastro.addEventListener('submit', async(e) => {
 
 });
 
+//ADD BOOK TO TABLE
+const tabela = document.getElementById('tabelaCatalogo');
+
 function addBookToTable(livro){
     const row = document.getElementById('row');
 
@@ -51,31 +50,15 @@ function addBookToTable(livro){
         <td>${livro.autor}</td>
         <td>${livro.preco}</td>
         <td>${livro.estoque}</td>
-        <td><button onclick="editarLivro()" id="n-sei-oq-vai-aqui">Editar</button><button onclick="excluirItem()">Excluir</button></td>
+        <td><button onclick="editBook()" id="n-sei-oq-vai-aqui">Editar</button><button onclick="deleteBook()">Excluir</button></td>
     </tr>
     `;
 
     tabela.appendChild(row);
 }
 
-async function loadBooks(){
-    try {
-        const res = await fetch(apiUrl);
-
-        if (!res.ok) throw new Error("Erro ao carregar livros");
-        
-        const livro = await res.json();
-
-        tabela.innerHTML = "";
-        livro.forEach(addBookToTable);
-
-    } catch (error) {
-        alert("Erro ao carregar livros" + err.message);
-    }
-
-}
-
-async function editBook (id, ) {
+//UPDATE
+async function editBook (id) {
     try{
         const res = await fetch(`${apiUrl}/${id}`);
         const livro = await res.json();
@@ -97,6 +80,7 @@ async function editBook (id, ) {
     }
 };
 
+//DELETE
 async function deleteBook(id) {
     try{
         await fetch (`${apiUrl}/${id}`, {method: 'DELETE'});
@@ -108,4 +92,53 @@ async function deleteBook(id) {
     }catch (err){
         alert('Erro ao apagar livro: ' + err.message);
     }
+};
+
+//SEARCH
+const formCatalogo = document.getElementById('catalogo');
+
+formCatalogo.addEventListener('submit', async(e) => {
+    e.preventDefault();
+    
+    const titulo = document.getElementById('tituloBusca').value;
+    
+    try {
+    const res = await fetch(apiUrl, {
+        method:'GET',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({titulo, autor, preco, estoque})
+    });
+
+    if (!res.ok) throw new Error('Livro não encontrado');
+
+    const livro = await res.json();
+    
+    formCatalogo.reset();
+
+
+    } catch (err) {
+        alert('Erro ao completar operação: ' + err.message);
+    }
+
+});
+
+
+// ============== WORKING PROGRAM ================================
+
+//LOAD
+async function loadBooks(){
+    try {
+        const res = await fetch(apiUrl);
+
+        if (!res.ok) throw new Error("Erro ao carregar livros");
+        
+        const livro = await res.json();
+
+        tabela.innerHTML = "";
+        livro.forEach(addBookToTable);
+
+    } catch (error) {
+        alert("Erro ao carregar livros" + err.message);
+    }
+
 };

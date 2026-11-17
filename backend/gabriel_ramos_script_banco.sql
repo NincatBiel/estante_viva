@@ -10,10 +10,9 @@ preco DECIMAL(10,2) NOT NULL,
 estoque INT NOT NULL
 );
 
-SELECT * FROM livro;
-
-
-
 
 /*
+insert into livro(titulo, autor, preco, estoque) values('teste','eu','10,00', 5);
+SELECT * FROM livro;
+
 DROP TABLE livro;
