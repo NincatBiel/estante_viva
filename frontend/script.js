@@ -39,23 +39,28 @@ formCadastro.addEventListener('submit', async(e) => {
 
 //ADD BOOK TO TABLE
 const tabela = document.getElementById('tabelaCatalogo');
+const livroteste = {
+    titulo: "(teste) Hamburger de siri",
+    autor: "Bob Esponja",
+    preco: 10,
+    estoque: 5
+};
 
 function addBookToTable(livro){
-    const row = document.getElementById('row');
-
+    const row = document.createElement('tr');
 
     row.innerHTML= `
-    <tr>
         <td>${livro.titulo}</td>
         <td>${livro.autor}</td>
         <td>${livro.preco}</td>
         <td>${livro.estoque}</td>
-        <td><button onclick="editBook()" id="n-sei-oq-vai-aqui">Editar</button><button onclick="deleteBook()">Excluir</button></td>
-    </tr>
+        <td class="tdButtons"><button onclick="editBook()">Editar</button><button onclick="deleteBook()">Excluir</button></td>
     `;
 
     tabela.appendChild(row);
 }
+
+addBookToTable(livroteste);
 
 //UPDATE
 async function editBook (id) {
@@ -106,7 +111,7 @@ formCatalogo.addEventListener('submit', async(e) => {
     const res = await fetch(apiUrl, {
         method:'GET',
         headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({titulo, autor, preco, estoque})
+        body: JSON.stringify({titulo})
     });
 
     if (!res.ok) throw new Error('Livro não encontrado');

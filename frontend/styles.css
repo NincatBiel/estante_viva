@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+/* ====================== ROOT =======================*/
 :root{
     --light-background: rgb(255, 255, 255);
     --dark-background: #333333;
@@ -8,6 +9,7 @@
     --light-font: #FFFF;
 }
 
+/* ====================== BODY =======================*/
 body{
     font-family: 'Open Sans',sans-serif;
     margin: 0px;
@@ -73,4 +75,13 @@ table,th,tr,td{
 
 th,td{
     padding: 2px 3px;
+}
+
+h2{
+    margin-bottom: 0;
+}
+
+/*Não ta funcionando*/
+.tdButtons{
+    gap: 10px
 }
