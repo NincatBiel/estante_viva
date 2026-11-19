@@ -23,22 +23,17 @@ header{
     padding-right: 30px;
 }
 
-footer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 12px;
+header,footer,nav,button{
+    background-color: var(--button-title-navbar);
+    color: var(--light-font);
 }
+
+/* =================== MAIN ================*/
 
 label{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-}
-
-header,footer,nav,button{
-    background-color: var(--button-title-navbar);
-    color: var(--light-font);
 }
 
 a{
@@ -81,7 +76,19 @@ h2{
     margin-bottom: 0;
 }
 
-/*Não ta funcionando*/
-.tdButtons{
-    gap: 10px
+#catalogo{
+    margin: 20px 0px
+}
+
+table{
+    margin-bottom: 15px;
+}
+
+/* ================= FOOTER ====================*/
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
+
 }

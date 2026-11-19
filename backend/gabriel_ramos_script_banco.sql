@@ -12,7 +12,7 @@ estoque INT NOT NULL
 
 
 /*
-insert into livro(titulo, autor, preco, estoque) values('teste','eu','10,00', 5);
+insert into livro(titulo, autor, preco, estoque) values('teste','eu', 10.00, 5);
 SELECT * FROM livro;
 
 DROP TABLE livro;

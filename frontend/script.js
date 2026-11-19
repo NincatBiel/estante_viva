@@ -1,11 +1,12 @@
 // Fazer o download das seguintes ferramentas do node:
+// npm init -y
 // npm install -y mysql2 express cors fetch
 
 const apiUrl = 'http://localhost:3000/livro';
 
 // ================================== FUNCTIONALITIES ==========================================
 
-//ADD
+//ADD ta funcionando agora
 const formCadastro = document.getElementById('cadastro');
 
 formCadastro.addEventListener('submit', async(e) => {
@@ -26,10 +27,9 @@ formCadastro.addEventListener('submit', async(e) => {
         if (!res.ok) throw new Error('Erro ao cadastrar livro');
 
         const livro = await res.json();
-        formCadastro.reset();
-
         addBookToTable(livro);
-
+        
+        formCadastro.reset();
 
     } catch (err) {
         alert('Erro ao completar operação: ' + err.message);
@@ -37,14 +37,8 @@ formCadastro.addEventListener('submit', async(e) => {
 
 });
 
-//ADD BOOK TO TABLE
+//ADD BOOK TO TABLE // ta funcionando corretamente
 const tabela = document.getElementById('tabelaCatalogo');
-const livroteste = {
-    titulo: "(teste) Hamburger de siri",
-    autor: "Bob Esponja",
-    preco: 10,
-    estoque: 5
-};
 
 function addBookToTable(livro){
     const row = document.createElement('tr');
@@ -54,13 +48,12 @@ function addBookToTable(livro){
         <td>${livro.autor}</td>
         <td>${livro.preco}</td>
         <td>${livro.estoque}</td>
-        <td class="tdButtons"><button onclick="editBook()">Editar</button><button onclick="deleteBook()">Excluir</button></td>
+        <td class="tdButtons"><button onclick="editBook(${livro.id})">Editar</button><button onclick="deleteBook(${livro.id})">Excluir</button></td>
     `;
 
     tabela.appendChild(row);
-}
 
-addBookToTable(livroteste);
+};
 
 //UPDATE
 async function editBook (id) {
@@ -91,8 +84,6 @@ async function deleteBook(id) {
         await fetch (`${apiUrl}/${id}`, {method: 'DELETE'});
 
         loadBooks();
-
-        document.getElementById('')
         
     }catch (err){
         alert('Erro ao apagar livro: ' + err.message);
@@ -130,7 +121,7 @@ formCatalogo.addEventListener('submit', async(e) => {
 
 // ============== WORKING PROGRAM ================================
 
-//LOAD
+//LOAD ta funcionando
 async function loadBooks(){
     try {
         const res = await fetch(apiUrl);
@@ -147,3 +138,5 @@ async function loadBooks(){
     }
 
 };
+
+loadBooks();
