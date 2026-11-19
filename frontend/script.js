@@ -56,12 +56,12 @@ function addBookToTable(livro){
 };
 
 //UPDATE
-async function editBook (id) {
+async function editBook(id) {
     try{
         const res = await fetch(`${apiUrl}/${id}`);
         const livro = await res.json();
 
-        await fetch (`${apiUrl}/${id}`, {
+        await fetch(`${apiUrl}/${id}`, {
             method: 'PUT',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify({
@@ -81,7 +81,7 @@ async function editBook (id) {
 //DELETE
 async function deleteBook(id) {
     try{
-        await fetch (`${apiUrl}/${id}`, {method: 'DELETE'});
+        await fetch(`${apiUrl}/${id}`, {method: 'DELETE'});
 
         loadBooks();
         
