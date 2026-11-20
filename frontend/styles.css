@@ -84,6 +84,13 @@ table{
     margin-bottom: 15px;
 }
 
+#secaoEdicao{
+    display: none;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+}
+
 /* ================= FOOTER ====================*/
 footer{
     display: flex;

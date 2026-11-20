@@ -6,7 +6,7 @@ const apiUrl = 'http://localhost:3000/livro';
 
 // ================================== FUNCTIONALITIES ==========================================
 
-//ADD ta funcionando agora
+//ADD no banco de dados // ta funcionando agora
 const formCadastro = document.getElementById('cadastro');
 
 formCadastro.addEventListener('submit', async(e) => {
@@ -56,7 +56,13 @@ function addBookToTable(livro){
 };
 
 //UPDATE
+
+// abrir seção com campos com as informações do livro já inseridas -> ao mexer, enviar alterações para o update
+// as alterações vão em forma de req e pra puxar o livro deve usar res
+// uso uma function pra abrir esse form?
+
 async function editBook(id) {
+
     try{
         const res = await fetch(`${apiUrl}/${id}`);
         const livro = await res.json();
@@ -78,7 +84,7 @@ async function editBook(id) {
     }
 };
 
-//DELETE
+//DELETE //funcionando corretamente
 async function deleteBook(id) {
     try{
         await fetch(`${apiUrl}/${id}`, {method: 'DELETE'});
